@@ -1,17 +1,32 @@
 .message {
 
+    display: grid;
+
 }
 
 .imageAndText {
+    display: grid;
+    grid-column-start: 3;
+    grid-column-end: 4;
+
 
 }
 
 .imageAndText img {
+    display: grid;
+    width: 50px;
+   justify-self: right;
+
+
+
 
 }
 
 .text {
-
+    border: solid;
+    background-color: deepskyblue;
+    color: #FFFFFF;
+    border-radius:5px;
 }
 
 .text:after {
@@ -19,7 +34,8 @@
 }
 
 .name {
-
+    float: right;
+justify-self: end;
 }
 
 .messageText {
@@ -27,5 +43,7 @@
 }
 
 .time {
-
+    display: grid;
+    grid-column:3/4;
+ justify-self: right;
 }
