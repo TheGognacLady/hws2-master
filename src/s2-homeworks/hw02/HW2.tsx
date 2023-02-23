@@ -28,7 +28,7 @@ export type AffairType = {
 export type FilterType = 'all' | AffairPriorityType
 
 // constants
-const defaultAffairs: Array<AffairType> = [ // need to fix any ?????????????
+export const defaultAffairs: Array<AffairType> = [ // need to fix any ?????????????
     {_id: 1, name: 'React', priority: 'high'}, // студенты могут изменить содержимое name и количество элементов в массиве, ...priority не менять!
     {_id: 2, name: 'anime', priority: 'low'},
     {_id: 3, name: 'games', priority: 'low'},
@@ -65,7 +65,7 @@ function HW2() {
 
     const filteredAffairs = filterAffairs(affairs, filter)
     const deleteAffairCallback = (_id: number) => {
-        return {deleteAffair}
+        setAffairs(deleteAffair(affairs, _id))
 
     }
 
