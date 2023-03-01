@@ -34,7 +34,7 @@ const Greeting: React.FC<GreetingPropsType> = (
             <div className={s.text}>
                 {'Людей добавили: '}
                 <span id={'hw3-users-total'}>
-                    {totalUsers}
+                    {totalUsers +1}
                 </span>
             </div>
 
