@@ -1,6 +1,5 @@
 import React, {ChangeEvent, KeyboardEvent} from 'react'
 import s from './Greeting.module.css'
-import error404 from "../hw05/pages/Error404";
 import {UserType} from "./HW3";
 
 type GreetingPropsType = {
@@ -27,14 +26,14 @@ const Greeting: React.FC<GreetingPropsType> = (
         lastUserName,
     } // деструктуризация пропсов
 ) => {
-    const inputClass = s.errorInput // need to fix with (?:)
+    const inputClass = error ? s.errorInput : "" // need to fix with (?:)
 
     return (
         <div id={'hw3-form'} className={s.greetingForm}>
             <div className={s.text}>
                 {'Людей добавили: '}
                 <span id={'hw3-users-total'}>
-                    {totalUsers +1}
+                    {totalUsers}
                 </span>
             </div>
 

@@ -9,12 +9,14 @@ type GreetingContainerPropsType = {
 }
 
 export const pureAddUser = (name: string, setError:(arg0:string) => void, setName: (arg0:string) => void, addUserCallback: (name:string) => void) => {
-    let lastUserName = name.trim();
-    if(!lastUserName) {
+
+    if(!name.trim()) {
+
         setError("Name is required")
     } else {
-        addUserCallback(lastUserName)
+        addUserCallback(name)
         setName("")
+        setError('')
     }
     // ==="" ?: // если имя пустое - показать ошибку, иначе - добавить юзера и очистить инпут
 }
@@ -23,7 +25,9 @@ export const pureOnBlur = (name: string, setError:(arg0: string)  => void  ) => 
     //name === "" && setError("Name is required")// если имя пустое - показать ошибку
     if(!name.trim())  {
     setError('error')
-}
+}else {
+        setError('')
+    }
 }
 
 export const pureOnEnter = (e:React.KeyboardEvent<HTMLInputElement>, addUser:() => void ) => {
@@ -45,7 +49,7 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({
     const setNameCallback = (e: ChangeEvent<HTMLInputElement>) => {   // need to fix any
 
         setName(e.currentTarget.value)
-        error ? setError('Name is required') : setError("")// need to fix
+     setError('')
 
     }
     const addUser = () => {
@@ -61,7 +65,8 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({
     }
 
     const totalUsers = users.length // need to fix
-    const lastUserName = users[-1].name // need to fix
+    const lastUserName = users[totalUsers - 1]?.name // need to fix
+
 
     return (
         <Greeting
