@@ -13,7 +13,7 @@ export const pureAddUser = (name: string, setError:(arg0:string) => void, setNam
     if(!name.trim()) {
 
         setError("Name is required")
-        setName("")
+
     } else {
         addUserCallback(name)
         setError('')
@@ -48,10 +48,13 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({
     const [error, setError] = useState<string>('') // need to fix any
 
     const setNameCallback = (e: ChangeEvent<HTMLInputElement>) => {
-        let trimmedName = e.currentTarget.value.trim()
-        trimmedName ? setName(trimmedName) : setError('')// need to fix any
-
-
+        let inputName = e.currentTarget.value
+        if(inputName !=="") {
+            setName(inputName)
+            setError("")
+        } else {
+            setError("Name is required")
+        }
     }
     const addUser = () => {
         pureAddUser(name, setError, setName, addUserCallback)
@@ -66,7 +69,7 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({
     }
 
     const totalUsers = users.length // need to fix
-    const lastUserName = users[totalUsers - 1]?.name // need to fix
+    const lastUserName = users[totalUsers - 1]?.name.trim() // need to fix
 
 
     return (
