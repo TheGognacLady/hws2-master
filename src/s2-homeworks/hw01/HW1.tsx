@@ -14,60 +14,60 @@ import avatar from './avatar.png'
 * */
 
 // // нужно создать правильный тип вместо any
-// type InwardMessageType = {
-//     text: string
-//     time: string
-// }
-// type UserType = {
-//     avatar: typeof avatar
-//     name: string
-// }
-// export type MessageType = {
-//     id: number
-//     user: UserType
-//     message: InwardMessageType
-// }
-//
-// // структуру объекта не менять
-// export const message0: MessageType = {
-//     id: 0,
-//     user: {
-//         avatar: avatar, // можно менять
-//         name: 'Alyosha Popovich',  // можно менять
-//     },
-//     message: {
-//         text: "What a f*** is going on here??? I wasn't prepared for such a mess!",// можно менять
-//         time: '22:00', // можно менять
-//     },
-// }
-// export const friendMessage0: MessageType = {
-//     id: 100,
-//     user: {
-//         avatar: avatar , // можно менять
-//         name: 'Yoshkin Kot', // можно менять
-//     },
-//     message: {
-//         text: "Мы попали, бро, надо как-то выруливать", // можно менять
-//         time: '22:10', // можно менять
-//     },
-// }
-//
-// const HW1 = () => {
-//     return (
-//         <div id={'hw1'}>
-//             <div className={s2.hwTitle}>Homework #1</div>
-//             <div className={s2.hw}>
-//                 {/*проверка отображения (не менять)*/}
-//                 <div>
-//                     <Message message={message0} />
-//                     <FriendMessage message={friendMessage0} />
-//                 </div>
-//
-//                 {/*для автоматической проверки дз (не менять)*/}
-//                 <MessageSender M={Message} />
-//             </div>
-//         </div>
-//     )
-// }
-//
-// export default HW1
+type InwardMessageType = {
+    text: string
+    time: string
+}
+type UserType = {
+    avatar: typeof avatar
+    name: string
+}
+export type MessageType = {
+    id: number
+    user: UserType
+    message: InwardMessageType
+}
+
+// структуру объекта не менять
+export const message0: MessageType = {
+    id: 0,
+    user: {
+        avatar: avatar, // можно менять
+        name: 'Alyosha Popovich',  // можно менять
+    },
+    message: {
+        text: "What a f*** is going on here??? I wasn't prepared for such a mess!",// можно менять
+        time: '22:00', // можно менять
+    },
+}
+export const friendMessage0: MessageType = {
+    id: 100,
+    user: {
+        avatar: avatar , // можно менять
+        name: 'Yoshkin Kot', // можно менять
+    },
+    message: {
+        text: "Мы попали, бро, надо как-то выруливать", // можно менять
+        time: '22:10', // можно менять
+    },
+}
+
+const HW1 = () => {
+    return (
+        <div id={'hw1'}>
+            <div className={s2.hwTitle}>Homework #1</div>
+            <div className={s2.hw}>
+                {/*проверка отображения (не менять)*/}
+                <div>
+                    <Message message={message0} />
+                    <FriendMessage message={friendMessage0} />
+                </div>
+
+                {/*для автоматической проверки дз (не менять)*/}
+                <MessageSender M={Message} />
+            </div>
+        </div>
+    )
+}
+
+export default HW1
