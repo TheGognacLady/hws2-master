@@ -14,7 +14,7 @@ export const homeWorkReducer = (state: UserType[], action: ActionType): any => {
                     return [...state].sort((a,b) => b.name > a.name
                     ? 1: -1)
             }
-            // by name
+
 
             return state // need to fix
         }
