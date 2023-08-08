@@ -10,7 +10,7 @@ type Timer = ReturnType<typeof setInterval> | undefined
 
 function Clock() {
     const [timerId, setTimerId] = useState<number | undefined>(undefined)
-    // for autotests // не менять // можно подсунуть в локалСторэдж нужную дату, чтоб увидеть как она отображается
+    // не менять // можно подсунуть в локалСторэдж нужную дату, чтоб увидеть как она отображается
     const [date, setDate] = useState<Date>(new Date(restoreState('hw9-date', Date.now())))
 
     const [show, setShow] = useState<boolean>(false)
@@ -18,7 +18,7 @@ function Clock() {
     const start = () => {
         console.log('setInterval')
 
-        // stop()
+
 
         const currentTimerId = +setInterval(() => {
           setDate(new Date())
