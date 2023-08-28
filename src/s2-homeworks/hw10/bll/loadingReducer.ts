@@ -7,7 +7,7 @@ export const loadingReducer = (state = initState, action: LoadingActionType):Sta
         case'CHANGE_LOADING':
 
             return {...state, isLoading: action.isLoading}
-        // пишет студент  // need to fix
+        // пишет студент
 
         default:
             return state

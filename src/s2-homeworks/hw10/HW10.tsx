@@ -22,7 +22,6 @@ const HW10 = () => {
 
     const setLoading = () => {
         // пишет студент // показать крутилку на 1,5 секунд
-        // dispatch
         console.log(isLoading,'')
         dispatch(loadingAC(true));
 
