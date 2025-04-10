@@ -44,9 +44,9 @@ const HW12 = () => {
             <div className={s2.hw}>
                 Выберите тему
                 <SuperSelect
-                    id={themeIdStr}
+                    id={'hw12-select-theme'}
                     className={s.select}
-                    onChange={(e)=>change(Number(e.target.value))}
+                    onChange={(e)=>change(Number(e.target.id))}
                     options={themes.map(theme=>({
                         key: theme.id,
                         value: theme.value,
