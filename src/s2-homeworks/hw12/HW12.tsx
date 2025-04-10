@@ -46,6 +46,7 @@ const HW12 = () => {
                     className={s.select}
                     onChange={(e)=>change(Number(e.target.value))}
                     options={themes.map(theme=>({
+                        key: theme.id,
                         value: theme.value,
 
                     }))}
