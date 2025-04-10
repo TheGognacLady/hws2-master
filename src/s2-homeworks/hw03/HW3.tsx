@@ -17,23 +17,22 @@ import GreetingContainer from './GreetingContainer'
 * 11 - сделать стили в соответствии с дизайном
 * */
 
-// type
+// types
 export type UserType = {
-    _id: string // need to fix any
-    name: string // need to fix any
+    _id: any // need to fix any
+    name: any // need to fix any
 }
 
-export const pureAddUserCallback = (name: string, setUsers: ([]) => void, users:Array<UserType>) => { // need to fix any
-    const user = { _id: v1(), name: name}
-        // eed to fix
-
+export const pureAddUserCallback = (name: any, setUsers: any, users: any) => { // need to fix any
+    const user = { // need to fix
+    }
     setUsers([...users, user])
 }
 
 const HW3 = () => {
-    const [users, setUsers] = useState<Array<UserType>>([]) // need to fix any //Array<UserType>
+    const [users, setUsers] = useState<any>([]) // need to fix any
 
-    const addUserCallback = (name: string) => { // need to fix any
+    const addUserCallback = (name: any) => { // need to fix any
         pureAddUserCallback(name, setUsers, users)
     }
 

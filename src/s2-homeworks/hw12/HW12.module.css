@@ -1,3 +1,12 @@
+.rectangle {
+    /* Rectangle 696 */
+    position: absolute;
+    width: 1280px;
+    height: 494px;
+    left: 0;
+    top: 60px;
+}
+
 [data-theme='1'] {
     --color: #000000;
     --background: #FFFFFF;
@@ -19,5 +28,16 @@ html {
 }
 
 .select {
+    /* Rectangle 13 */
+    position: absolute;
+    width: 171px;
+    height: 36px;
+    left: 70px;
+    top: 223px;
+    margin-top: 6px;
+
+    box-sizing: border-box;
+    border: 1px solid rgb(50, 50, 50);
+    border-radius: 2px;
 
 }
