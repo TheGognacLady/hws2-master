@@ -33,6 +33,8 @@ const HW12 = () => {
         document.documentElement.dataset.theme = themeId + ''
     }, [themeId])
 
+    const themeIdStr = themeId + ''
+
     return (
         <div id={'hw12'} className={s.rectangle}>
             <div id={'hw12-text'} className={s2.hwTitle}>
@@ -42,12 +44,13 @@ const HW12 = () => {
             <div className={s2.hw}>
                 Выберите тему
                 <SuperSelect
-                    id={'hw12-text'}
+                    id={themeIdStr}
                     className={s.select}
                     onChange={(e)=>change(Number(e.target.value))}
                     options={themes.map(theme=>({
                         key: theme.id,
                         value: theme.value,
+                        id: theme.id,
 
                     }))}
 
