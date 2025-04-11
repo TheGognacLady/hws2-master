@@ -1,36 +1,49 @@
 .button {
+    background-color: #61dafb;
+    width: 80px;
 }
 
 .disabled {
+    background-color: #0066cc;
 }
 
 .secondary {
+    background-color: #cc0000;
 }
 
 .default {
+    background-color: #212A34;
 }
 
 .red {
+    background-color: orange;
 }
 
 .default:hover {
+    color: purple;
 }
 
 .red:hover {
+    color: white;
 }
 
 .secondary:hover {
+    color: purple;
 }
 
 
 .default:active {
+    background-color: green;
 }
 
 .secondary:active {
+    background-color: #61dafb;
 }
 
 .red:active {
+    background-color: #212A34;
 }
 
 .button:disabled {
+    background-color: silver;
 }

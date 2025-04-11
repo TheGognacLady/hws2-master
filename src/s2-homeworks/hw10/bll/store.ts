@@ -1,6 +1,7 @@
 import { loadingReducer } from './loadingReducer'
 import { combineReducers, legacy_createStore } from 'redux'
 import { themeReducer } from '../../hw12/bll/themeReducer'
+import {useDispatch} from "react-redux";
 
 const reducers = combineReducers({
     loading: loadingReducer, // hw10

@@ -3,7 +3,8 @@ import s from './HW12.module.css'
 import s2 from '../../s1-main/App.module.css'
 import SuperSelect from '../hw07/common/c5-SuperSelect/SuperSelect'
 import {useDispatch, useSelector} from 'react-redux'
-import {changeThemeId, StateType} from './bll/themeReducer'
+import {changeThemeId} from './bll/themeReducer'
+import {AppStoreType} from "../hw10/bll/store"
 
 /*
 * 1 - в файле themeReducer.ts написать нужные типы вместо any, дописать редьюсер
@@ -20,43 +21,36 @@ const themes = [
 
 const HW12 = () => {
     // взять ид темы из редакса
-    const themeId: number = useSelector((state: StateType) => state.themeId)
+    const themeId = useSelector<AppStoreType, number>(state=>state.theme.themeId)
+const dispatch = useDispatch()
 
-    const dispatch = useDispatch()
-
-    const change = (id: number) => { // дописать функцию
-
+    const change = (id: number) => { //
+        console.log(id)
         dispatch(changeThemeId(id))
     }
-
+    console.log(themeId)
     useEffect(() => {
         document.documentElement.dataset.theme = themeId + ''
     }, [themeId])
 
-    const themeIdStr = themeId + ''
-
     return (
-        <div id={'hw12'} className={s.rectangle}>
+        <div id={'hw12'}>
             <div id={'hw12-text'} className={s2.hwTitle}>
                 Homework #12
             </div>
 
             <div className={s2.hw}>
-                Выберите тему
                 <SuperSelect
                     id={'hw12-select-theme'}
                     className={s.select}
-                    onChange={(e)=>change(Number(e.target.id))}
-                    options={themes.map(theme=>({
-                        key: theme.id,
-                        value: theme.value,
-                        id: theme.id,
-
-                    }))}
+                    options={themes}
+                    value={themeId}
+                    onChange={(e)=>change(+e.currentTarget.value)}
 
                     // сделать переключение тем
 
                 />
+
             </div>
         </div>
     )

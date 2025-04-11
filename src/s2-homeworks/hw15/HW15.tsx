@@ -3,7 +3,7 @@ import s2 from '../../s1-main/App.module.css'
 import s from './HW15.module.css'
 import axios from 'axios'
 import SuperPagination from './common/c9-SuperPagination/SuperPagination'
-import {useSearchParams} from 'react-router-dom'
+import {useParams, useSearchParams} from 'react-router-dom'
 import SuperSort from './common/c10-SuperSort/SuperSort'
 
 /*
@@ -47,19 +47,30 @@ const HW15 = () => {
     const [searchParams, setSearchParams] = useSearchParams()
     const [techs, setTechs] = useState<TechType[]>([])
 
+    console.log(techs)
+
     const sendQuery = (params: any) => {
+
         setLoading(true)
         getTechs(params)
             .then((res) => {
+                // @ts-ignore
+                setTechs(res.data.techs)
                 // делает студент
-
+                // @ts-ignore
+                setTotalCount(res.data.totalCount)
                 // сохранить пришедшие данные
 
                 //
-            })
+            }).finally(()=>{
+            setLoading(false)
+        })
     }
 
     const onChangePagination = (newPage: number, newCount: number) => {
+        setSearchParams({sort:sort,page:newPage.toString(), count:newCount.toString()})
+        setPage(newPage)
+        setCount(newCount)
         // делает студент
 
         // setPage(
@@ -72,6 +83,10 @@ const HW15 = () => {
     }
 
     const onChangeSort = (newSort: string) => {
+        setSort(newSort)
+        setPage(1)
+        setSearchParams({sort:newSort, page:"1", count:count.toString()})
+        sendQuery({sort:newSort, page, count})
         // делает студент
 
         // setSort(
@@ -88,7 +103,7 @@ const HW15 = () => {
         sendQuery({page: params.page, count: params.count})
         setPage(+params.page || 1)
         setCount(+params.count || 4)
-    }, [])
+    }, [count, page])
 
     const mappedTechs = techs.map(t => (
         <div key={t.id} className={s.row}>

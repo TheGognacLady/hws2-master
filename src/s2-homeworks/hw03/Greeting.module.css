@@ -5,6 +5,7 @@
 }
 
 .error {
+    color:green;
 }
 
 .input {
@@ -14,6 +15,7 @@
 }
 
 .errorInput {
+    color:red
 }
 
 .button {

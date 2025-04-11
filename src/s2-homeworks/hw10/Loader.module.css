@@ -1,3 +1,23 @@
 .loader {
-    /*свг и/или анимация*/
+    background:linear-gradient(darkmagenta, hotpink);
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    transition: all 0.5s ease-out ;
+    overflow: hidden;
+
 }
+.inner{
+    width: 70%;
+    height: 70%;
+    background-color: black;
+    animation: 3s linear infinite rotate;
+    animation: spin 2s linear infinite;
+    margin: 10px;
+
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+

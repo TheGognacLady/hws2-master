@@ -1,25 +1,50 @@
 .sidebar {
+    background:linear-gradient(white , black);
+
+    display: block;
+
 }
 
 .sidebar.open {
+    background-color: #cc9c00;
+    width: 400px;
+    position: absolute;
+    height: 100%;
+    display: flex;
+flex-direction: row-reverse;
+    justify-content: space-between;
 }
 
 .background {
 }
 
 .nav {
+   display: flex;
+    justify-content: space-evenly;
+width: 100%;
+
+
 }
 
-.nav a {
-}
+
 
 .nav a:hover {
+    color:#8a8a8a;
 }
 
-.nav a.active {
-}
+
 .close {
+
 }
 
 .close img {
+}
+.link{
+    color:black;
+}
+.active{
+    color:red;
+}
+.hidden{
+    display: none;
 }

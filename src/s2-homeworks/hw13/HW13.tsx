@@ -8,6 +8,7 @@ import error400 from './images/400.svg'
 import error500 from './images/500.svg'
 import errorUnknown from './images/error.svg'
 
+
 /*
 * 1 - дописать функцию send
 * 2 - дизэйблить кнопки пока идёт запрос
@@ -19,32 +20,55 @@ const HW13 = () => {
     const [text, setText] = useState('')
     const [info, setInfo] = useState('')
     const [image, setImage] = useState('')
+    const [dis, setDis] = useState(false)
 
     const send = (x?: boolean | null) => () => {
+        setDis(true)
         const url =
             x === null
                 ? 'https://xxxxxx.ccc' // имитация запроса на не корректный адрес
                 : 'https://samurai.it-incubator.io/api/3.0/homework/test'
 
         setCode('')
-        setImage('')
-        setText('')
+        setImage(errorUnknown)
+
         setInfo('...loading')
 
         axios
             .post(url, {success: x})
             .then((res) => {
-                setCode('Код 200!')
+                setText(res.data.errorText)
+                setCode(`Код ${res.status} !!!!`)
                 setImage(success200)
-                // дописать
+                setInfo(res.data.info)
+
 
             })
             .catch((e) => {
-                // дописать
 
-            })
+                if (e.response.data){
+                    setText(e.response.data.errorText)
+                    setInfo(e.response.data.info)
+
+                    if (e.response.status ===400){
+                        setCode(e.response.status)
+                        setImage(error400)
+                    } if (e.response.status ===500){
+                        setCode(e.response.status)
+                        setImage(error500)
+                    }
+                } else {
+
+                    setText(e.message)
+                    setInfo(e.name)
+                }
+
+            }).finally(()=>{
+            setDis(false)
+        })
+
     }
-
+    console.log(dis)
     return (
         <div id={'hw13'}>
             <div className={s2.hwTitle}>Homework #13</div>
@@ -55,7 +79,7 @@ const HW13 = () => {
                         id={'hw13-send-true'}
                         onClick={send(true)}
                         xType={'secondary'}
-                        // дописать
+                        disabled={dis}
 
                     >
                         Send true
@@ -64,7 +88,8 @@ const HW13 = () => {
                         id={'hw13-send-false'}
                         onClick={send(false)}
                         xType={'secondary'}
-                        // дописать
+                        disabled={dis}
+
 
                     >
                         Send false
@@ -73,7 +98,8 @@ const HW13 = () => {
                         id={'hw13-send-undefined'}
                         onClick={send(undefined)}
                         xType={'secondary'}
-                        // дописать
+                        disabled={dis}
+
 
                     >
                         Send undefined
@@ -82,7 +108,8 @@ const HW13 = () => {
                         id={'hw13-send-null'}
                         onClick={send(null)} // имитация запроса на не корректный адрес
                         xType={'secondary'}
-                        // дописать
+                        disabled={dis}
+
 
                     >
                         Send null

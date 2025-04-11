@@ -4,6 +4,7 @@ import React, {
     InputHTMLAttributes,
 } from 'react'
 import s from './SuperCheckbox.module.css'
+import {checkboxClasses} from "@mui/material";
 
 // тип пропсов обычного инпута
 type DefaultInputPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>,
@@ -22,11 +23,15 @@ const SuperCheckbox: React.FC<SuperCheckboxPropsType> = (
         spanClassName,
         children, // в эту переменную попадёт текст, типизировать не нужно так как он затипизирован в React.FC
         id,
-
+        checked,
         ...restProps // все остальные пропсы попадут в объект restProps
     }
 ) => {
     const onChangeCallback = (e: ChangeEvent<HTMLInputElement>) => {
+
+        if (onChangeChecked){
+            onChangeChecked(e.currentTarget.checked)
+        }
         // задачка на написание онченджа
 
     }
@@ -39,6 +44,7 @@ const SuperCheckbox: React.FC<SuperCheckboxPropsType> = (
             <input
                 id={id}
                 type={'checkbox'}
+                checked={checked}
                 onChange={onChangeCallback}
                 className={finalInputClassName}
                 {...restProps} // отдаём инпуту остальные пропсы если они есть (checked например там внутри)
